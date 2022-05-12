@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Avif HDR diagnostic page</title>
+    <style>
+        * {
+            margin: auto;
+            padding: 0;
+            text-align: center;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css"
+        href="https://rawgit.com/NUKnightLab/juxtapose/1.1.3/juxtapose/css/juxtapose.css" />
+</head>
+
+<body>
+
+    <style>
+        a.jx-knightlab div.knightlab-logo {
+            visibility: hidden;
+            display: none;
+        }
+        a.jx-knightlab span.juxtapose-name {
+            visibility: hidden;
+            display: none;
+        }
+
+
+        .block{
+            padding: 20px;
+            width:512px;
+            text-align:left;
+        }
+
+        .grid-container {
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-gap: 0;
+        
+        }
+    #juxtapose-wrapper {
+      border: 10px solid #f70d8a;
+    }
+    </style>
+    <!-- Title section -->
+    <img src="images/ACES_Logo_FullColor_RGB crop.png" width="400" style="padding: 20px">
+    <div class="block">
+        <h1>Avif HDR diagnostic page</h1>
+        This page is designed to help you diagnose if your browser and display are displaying HDR values properly.<br>
+        <br>
+        The image on the left marked "SDR 1.0" is an sRGB encoded png file.<br> 
+        <br>    
+        The image on the right marked "PQ 100nits" is a Rec.2100 (Rec2020, ST.2084/PQ) encoded Avif file<br>
+        <br>
+        Ideally, the two images should look the same. If you're seeing a log like desaturated image on the right under Windows, you may need to set "Use HDR" to On under the Display settings. If the white level of the left and right sections do not match, you may need to adjust the "HDR/SDR brightness balance" under Windows HD Color settings. In my limited experince it needs to be set to 5.<br>
+        <br>
+        <br>
+    </div>
+    <div  class="grid-container" id="compares" style="width:1024px;background-color:transparent;align=centre">
+        <div >
+            <img src="imagesDiagnostic/SDR_1.png"    loading="lazy"  />
+        </div>
+        <div>
+            <picture>
+                <!--This is the optional AVIF image-->
+                <source type="image/avif" srcset="imagesDiagnostic/PQ100nits.avif">
+                <!--This is the fallback JPEG image-->
+                <img alt="Did that not work?" src="imagesDiagnostic/notSupported.png">
+            </picture>       
+        </div>
+
+    </div>
+    <div class="block">
+        Swipe between the two states here. The outer section of colour boxes should match, as should the SDR white.
+        <br>
+        <br>
+        <div  class="juxtapose" data-startingposition="50%" data-showlabels="true"style="margin: 0 auto">
+            <img src="imagesDiagnostic/SDR_1.png"  loading="lazy" data-label="SDR"  />
+            <img src="imagesDiagnostic/PQ100nits.avif"  loading="lazy" data-label="HDR"  />
+        </div>
+    </div>
+    <div class="block" >
+    This image ramps from 10 nits up to 1000nit in 10nit steps. The image is encoded in Rec.2100 (Rec2020, ST.2084/PQ)
+    </div>
+    <div >
+        <img src="imagesDiagnostic/PQ_10_to_1000nits.avif"    loading="lazy"  />
+    </div>
+    <div class="block" >
+    This second image ramps from 100nits all the way up to the PQ limit of 10000nits. It can be useful to see where things are being clipped or tone mapped on different displays. As well as seeing how the brightness slider on an XDR display scales things when in the "Pro Display XDR (1600nits)" variable brightness mode.
+    </div>
+    <div >
+        <img src="imagesDiagnostic/PQ_100_to_10000nits.avif"    loading="lazy"  />
+    </div>
+
+    </div>
+    <script
+        src="js/juxtapose.min.js">
+    </script>
+    <link rel="stylesheet"
+        href="css/juxtapose.css">
+    <link rel="stylesheet"
+        href="css/styles.css">
+    <link rel="stylesheet" href="https://use.typekit.net/cbm8egl.css">
+</body>
+
+</html>

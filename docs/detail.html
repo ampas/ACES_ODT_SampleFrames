@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>ACES VWG ODT - Compare Images </title>
+    <style>
+        * {
+            margin: auto;
+            padding: 0;
+            text-align: center;
+        }
+    </style>
+
+
+
+
+</head>
+
+<body>
+
+
+    <style>
+        a.jx-knightlab div.knightlab-logo {
+            visibility: hidden;
+            display: none;
+        }
+        a.jx-knightlab span.juxtapose-name {
+            visibility: hidden;
+            display: none;
+        }
+        div.jx-slider {
+            color: #f70d8a;
+        }
+        div.jx-image div.jx-label {
+            background-color: #f70d8a;
+            opacity:1;
+            color:#000000;
+        }
+
+        .grid-container {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-gap: 10px;
+        }
+    #juxtapose-wrapper {
+      border: 10px solid #f70d8a;
+    }
+    </style>
+    <!-- Title section -->
+    <div class="title">
+        <h1>ACES VWG ODT - Compare Images</h1>
+        <br>
+
+        <!-- <img id="myImage" src="" /> -->
+
+
+        <!-- <img id="myImage1" src="" width="540">
+        <img id="myImage2" src="" width="540"> -->
+        <div id="comparesInfo" style="width:1920px;display:grid;grid-template-columns:50% 50%">
+            <div><p id="text1">testText</p></div><div ><p id="text2">testText</p></div>
+        </div>
+        <div   id="compares" style="width:1920px;background-color:transparent;">
+        <div class="juxtapose" data-startingposition="50%" data-showlabels="true"style="margin: 0 auto">
+            <img id="myImage1" src="" width="540">
+            <img id="myImage2" src="" width="540">
+        </div>
+        </div>  
+
+
+        <script type="text/javascript">
+            const queryString = window.location.search;
+            console.log(queryString);
+            const urlParams = new URLSearchParams(queryString);
+            document.getElementById("myImage1").src = urlParams.get('image1');
+            document.getElementById("myImage2").src = urlParams.get('image2');
+            document.getElementById("text1").innerHTML = urlParams.get('image1');
+            document.getElementById("text2").innerHTML = urlParams.get('image2');
+        </script>
+        
+
+    <script>
+    function myFunction() {
+        // document.getElementById("myImage").src = "images/ACES_ODT_Candidate A rev008 - Rec.2100.0101.avif";
+
+        const queryString = window.location.search;
+        console.log(queryString);
+        const urlParams = new URLSearchParams(queryString);
+        document.getElementById("myImage1").src = urlParams.get('image1');
+        document.getElementById("myImage2").src = urlParams.get('image2');
+
+
+        var x = urlParams.get('image1');
+        document.getElementById("demo").innerHTML = x;
+    }
+    </script>
+
+    <script
+        src="js/juxtapose.min.js">
+    </script>
+    <link rel="stylesheet"
+        href="css/juxtapose.css">
+        <link rel="stylesheet"
+        href="css/styles.css">
+    <link rel="stylesheet" href="https://use.typekit.net/cbm8egl.css">
+</body>
+
+</html>
