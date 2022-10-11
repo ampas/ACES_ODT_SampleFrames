@@ -1,0 +1,13 @@
+set cut_paste_input [stack 0]
+version 14.0 v1.049117b
+push $cut_paste_input
+NoOp {
+ name ACES_SampleFrame_Selector
+ knobChanged "\nk = nuke.thisKnob()\nif k.name() == \"option\":\n    nuke.frame(k.getValue()+1)\n\n"
+ selected true
+ xpos 298
+ ypos -112
+ addUserKnob {20 User}
+ addUserKnob {4 option l "Example Frames" M {"ACES Logo with Macbeth" "F-35 still life" "Supermarket items" "Nightime neon" "3 faces" "Trumpet man with hat" "Pool player with red jacket" "Blonde woman" "Brunette woman in red gown" Garlic Astronauts "Pioneers in snow" "Hollywood museum with sky" "Candlelit champagne" "garage explosion" "Ice queen" "Trumpet neon alley" "Beach sunset" "3 people in lounge" "Dusk Beach" "Jaws with fire" "Girl in diner" "Skeleton and Pumpkin" "2-shot reading by red lamp" "Bridge in forest" "Nighttime skyline" "Nightime mall" "Terry Silver with Fairy lights" "Hot air balloon interior" "Clothes line in sun" "Fruit and Veg" "2 women and red car" "2 women and neon" "Surfer and ocean" "Couple in green park" "ARRI snowy lakeside" "Snowy forrest with sun" "Coloured punch table" "Main street neon dusk" "Train yard with sun" "Woman in Japan" "Car on mountain road" "Ballet lightbulb" "Sunset over Schooner " "Flamingo Hotel" "Frontier Hotel" "Golden Gate Dusk" "Half Dome Mountain" "Lake with reflections and blue sky" "Tree hillside with blue sky" "Women changing test shoot" "Faux 50s diner" "Period wedding" "Riding in the rain" "Charts in street" "Charts and balls in studio" "Hollywood Boulevard night with neon sticks" "underexposed blue-screen champagne" "underexposed green-screen champagne" "LEGO Movie Cafe" "Red Xmas" "Rec2020 sphere ramps" "ACEScg Sabres" "Extreme green Dragon" "CG Explosion" "Pruis with bright taillights" "Pruis with bright headlights" "ARRI blonde woman and charts" "Extreme blue club scene" "Cornell box with synthetic spectral emitters " "ARRI Ludwigstrasse wide shot" "ARRI Ludwigstrasse close up of girl" "Fire in snowy campsite" "Extreme dynamic range with 2 people" "Moderate dynamic range with 2 people" "Blue bar" Fireplace}}
+ option "Pruis with bright headlights"
+}
